@@ -1,0 +1,75 @@
+\ProvidesPackage{_fancy}
+
+% Textformattierung
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{CJKutf8}
+\usepackage[ngerman]{babel}
+\usepackage{tgheros}
+\usepackage{subfiles}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+    
+\usepackage{titlesec}
+\titleformat{\section}{\bf\LARGE\fontfamily{qhv}\selectfont\color{slate}}{}{0mm}{}
+\titlespacing{\section}{0mm}{5mm}{0mm}
+\titleformat{\subsection}{\bf\Large\fontfamily{qhv}\selectfont\color{slate}}{}{0mm}{}
+\titlespacing{\subsection}{0mm}{5mm}{0mm}
+\titleformat{\subsubsection}{\bf\normalsize\fontfamily{qhv}\selectfont\color{slate}}{}{0mm}{}
+\titlespacing{\subsubsection}{0mm}{5mm}{0mm}
+\titleformat{\paragraph}{\small\fontfamily{phv}\selectfont}{}{0mm}{}
+\setlength{\parindent}{0mm}
+    
+% Farbformattierung
+\usepackage[table]{xcolor}
+\definecolor{red}{RGB}{139, 55, 55}
+\definecolor{greyblue}{RGB}{53, 60, 71}
+\definecolor{slate}{RGB}{112, 130, 141}
+\rowcolors{2}{slate}{greyblue}
+    
+% Seitenformatierung
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage{changepage}
+\usepackage{wallpaper}
+\usepackage{geometry}
+\geometry{a4paper,
+        left=17mm, right=17mm,
+        top=25mm, bottom=50mm}
+\headheight=25mm
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\bf\Huge\fontfamily{phv}\selectfont{\Name}\\\hrule
+\bf\normalsize\fontfamily{phv}\selectfont\Info}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\bf\Huge\fontfamily{phv}\selectfont{\Number\\ \Category}}
+\graphicspath{ {./images/} }
+\renewcommand{\familydefault}{\sfdefault} %Dokumentenschriftart
+
+%Tabellendefinitionen
+\setlength\tabcolsep{0pt}
+\def\nl{\\}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\br\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\br\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\br\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\newenvironment{table_weapon}
+    {\end{multicols}
+     \begin{center}
+     \setlength{\arrayrulewidth}{1.5pt}
+     \color{white}
+     \begin{tabular}{L{40mm} C{16mm} C{20mm} C{10mm} C{20mm} C{15mm} C{15mm} C{20mm} C{20mm}}
+     \hline
+     \rowcolor{red}\multicolumn{9}{p{176mm}}{\textbf{\hspace{2mm}Berliner Knarren}} \\
+     \hline
+     \textbf{Waffe} & \textbf{Präz.} & \textbf{Schaden} & \textbf{DK} & \textbf{Modus} & \textbf{RK} & \textbf{Munition} & \textbf{Verfüg.*} & \textbf{Preis}\nl
+     \hline
+    }
+    { 
+    \end{tabular} 
+    \end{center}
+    \begin{multicols}{2}
+    }
