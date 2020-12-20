@@ -10,6 +10,7 @@
 \usepackage{subfiles}
 \usepackage{graphicx}
 \usepackage{wrapfig}
+\usepackage{blindtext}
 
 \usepackage{titlesec}
 \titleformat{\section}{\bf\LARGE\fontfamily{qhv}\selectfont}{}{0mm}{}
@@ -49,11 +50,25 @@
 \newcolumntype{C}[1]{>{\centering\let\br\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\br\\\arraybackslash\hspace{0pt}}m{#1}}
 
-\newenvironment{table_weapon}
+\newenvironment{table_guns_de}[1]
     {\end{multicols}
      \begin{center}
      \begin{tabular}{L{40mm} C{16mm} C{20mm} C{10mm} C{20mm} C{15mm} C{15mm} C{20mm} C{20mm}}
-     \textbf{Waffe} & \textbf{Präz.} & \textbf{Schaden} & \textbf{DK} & \textbf{Modus} & \textbf{RK} & \textbf{Munition} & \textbf{Verfüg.*} & \textbf{Preis}\nl
+     \multicolumn{9}{p{176mm}}{\textbf{#1}} \nl
+     \textbf{Waffe} & \textbf{Präzision} & \textbf{Schaden} & \textbf{DK} & \textbf{Modus} & \textbf{RK} & \textbf{Munition} & \textbf{Verfüg.} & \textbf{Preis}\nl
+    }
+    { 
+    \end{tabular}
+    \end{center}
+    \begin{multicols}{2}
+    }
+
+\newenvironment{table_melee_de}[1]
+    {\end{multicols}
+     \begin{center}
+     \begin{tabular}{L{70mm} C{16mm} C{20mm} C{20mm} C{10mm} C{20mm} C{20mm}}
+     \multicolumn{7}{p{176mm}}{\textbf{#1}}\nl
+     \textbf{Waffe} & \textbf{Präzision} & \textbf{Reichweite} & \textbf{Schaden} & \textbf{DK} & \textbf{Verfüg.} & \textbf{Preis}\nl
     }
     { 
     \end{tabular} 
