@@ -10,6 +10,7 @@
 \usepackage{subfiles}
 \usepackage{graphicx}
 \usepackage{wrapfig}
+\usepackage{blindtext}
     
 \usepackage{titlesec}
 \titleformat{\section}{\bf\LARGE\fontfamily{qhv}\selectfont\color{slate}}{}{0mm}{}
@@ -41,12 +42,13 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{\bf\Huge\fontfamily{phv}\selectfont{\Name}\\\hrule
+\lhead{\bf\Huge\fontfamily{phv}\selectfont\color{slate}\Name\color{black}\\\hrule
 \bf\normalsize\fontfamily{phv}\selectfont\Info}
 \renewcommand{\headrulewidth}{0pt}
 \rfoot{\bf\Huge\fontfamily{phv}\selectfont{\Number\\ \Category}}
 \graphicspath{ {./images/} }
 \renewcommand{\familydefault}{\sfdefault} %Dokumentenschriftart
+\CenterWallPaper{1}{background.png}
 
 %Tabellendefinitionen
 \setlength\tabcolsep{0pt}
@@ -56,16 +58,52 @@
 \newcolumntype{C}[1]{>{\centering\let\br\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\br\\\arraybackslash\hspace{0pt}}m{#1}}
 
-\newenvironment{table_weapon}
+\newenvironment{table_guns_de}[1]
     {\end{multicols}
      \begin{center}
      \setlength{\arrayrulewidth}{1.5pt}
      \color{white}
      \begin{tabular}{L{40mm} C{16mm} C{20mm} C{10mm} C{20mm} C{15mm} C{15mm} C{20mm} C{20mm}}
      \hline
-     \rowcolor{red}\multicolumn{9}{p{176mm}}{\textbf{\hspace{2mm}Berliner Knarren}} \\
+     \rowcolor{red}\multicolumn{9}{p{176mm}}{\textbf{\hspace{2mm} #1}} \\
      \hline
-     \textbf{Waffe} & \textbf{Präz.} & \textbf{Schaden} & \textbf{DK} & \textbf{Modus} & \textbf{RK} & \textbf{Munition} & \textbf{Verfüg.*} & \textbf{Preis}\nl
+     \textbf{Waffe} & \textbf{Präzision} & \textbf{Schaden} & \textbf{DK} & \textbf{Modus} & \textbf{RK} & \textbf{Munition} & \textbf{Verfüg.} & \textbf{Preis}\nl
+     \hline
+    }
+    { 
+    \end{tabular}
+    \end{center}
+    \begin{multicols}{2}
+    }
+
+\newenvironment{table_guns_de_test}[1]
+    {\end{multicols}
+     \begin{center}
+     \setlength{\arrayrulewidth}{1.5pt}
+     \color{white}
+     \begin{tabular}{L{40mm} C{15mm} C{20mm} C{13mm} C{20mm} C{13mm} C{20mm} C{15mm} C{20mm}}
+     \hline
+     \rowcolor{red}\multicolumn{9}{p{176mm}}{\textbf{\hspace{2mm} #1}} \\
+     \hline
+     \textbf{Waffe} & \textbf{Präzision} & \textbf{Schaden} & \textbf{DK} & \textbf{Modus} & \textbf{RK} & \textbf{Munition} & \textbf{Verfüg.} & \textbf{Preis}\nl
+     \hline
+    }
+    { 
+    \end{tabular} 
+    \end{center}
+    \begin{multicols}{2}
+    }
+
+\newenvironment{table_melee_de}[1]
+    {\end{multicols}
+     \begin{center}
+     \setlength{\arrayrulewidth}{1.5pt}
+     \color{white}
+     \begin{tabular}{L{70mm} C{16mm} C{20mm} C{20mm} C{10mm} C{20mm} C{20mm}}
+     \hline
+     \rowcolor{red}\multicolumn{7}{p{176mm}}{\textbf{\hspace{2mm} #1}} \\
+     \hline
+     \textbf{Waffe} & \textbf{Präzision} & \textbf{Reichweite} & \textbf{Schaden} & \textbf{DK} & \textbf{Verfüg.} & \textbf{Preis}\nl
      \hline
     }
     { 
