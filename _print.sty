@@ -5,12 +5,14 @@
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
 \usepackage{CJKutf8}
-\usepackage[ngerman]{babel}
+\usepackage[english]{babel}
+\usepackage{blindtext}
 \usepackage{tgheros}
 \usepackage{subfiles}
 \usepackage{graphicx}
 \usepackage{wrapfig}
-\usepackage{blindtext}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
 
 \usepackage{titlesec}
 \titleformat{\section}{\bf\LARGE\fontfamily{qhv}\selectfont}{}{0mm}{}
@@ -45,17 +47,85 @@
 %Tabellendefinitionen
 \setlength\tabcolsep{0pt}
 \def\nl{\\\hline}
+\renewcommand{\arraystretch}{1.5}
 \usepackage{array}
 \newcolumntype{L}[1]{>{\raggedright\let\br\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{C}[1]{>{\centering\let\br\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\br\\\arraybackslash\hspace{0pt}}m{#1}}
 
+\newenvironment{table_generic_2}[3]
+    {\begin{center}
+     \setlength{\arrayrulewidth}{1.5pt}
+     \begin{tabular}{L{2mm} L{53mm} C{30mm}}
+     \hline
+     \multicolumn{3}{p{85mm}}{\hspace{2mm}\textbf{#1}} \\
+     \hline
+     & \textbf{#2} & \textbf{#3}\nl
+    }
+    { 
+    \end{tabular} 
+    \end{center}
+    }
+
+\newenvironment{table_price_de}[1]
+    {\begin{center}
+     \setlength{\arrayrulewidth}{1.5pt}
+     \begin{tabular}{L{2mm} L{51mm} C{12mm} C{20mm}}
+     \hline
+     \multicolumn{4}{p{85mm}}{\hspace{2mm}\textbf{#1}} \\
+     \hline
+     & \textbf{Name} & \textbf{Verf.} & \textbf{Preis}\nl
+    }
+    { 
+    \end{tabular} 
+    \end{center}
+    }
+
+\newenvironment{table_price_en}[1]
+    {\begin{center}
+     \setlength{\arrayrulewidth}{1.5pt}
+     \begin{tabular}{L{2mm} L{51mm} C{12mm} C{20mm}}
+     \hline
+     \multicolumn{4}{p{85mm}}{\hspace{2mm}\textbf{#1}} \\
+     \hline
+     & \textbf{Name} & \textbf{Avail.} & \textbf{Price}\nl
+    }
+    { 
+    \end{tabular} 
+    \end{center}
+    }
+
+\newenvironment{statblock_wide}
+    {\vspace{-6mm}
+     \begin{center}
+     \setlength{\arrayrulewidth}{1.5pt}
+     \begin{tabular}{C{2mm} L{21.2mm} L{152.8mm}}
+     \hline
+    }
+    { 
+    \end{tabular} 
+    \end{center}
+    }
+    
 \newenvironment{table_guns_de}[1]
     {\end{multicols}
      \begin{center}
      \begin{tabular}{L{40mm} C{16mm} C{20mm} C{10mm} C{20mm} C{15mm} C{15mm} C{20mm} C{20mm}}
      \multicolumn{9}{p{176mm}}{\textbf{#1}} \nl
      \textbf{Waffe} & \textbf{Präzision} & \textbf{Schaden} & \textbf{DK} & \textbf{Modus} & \textbf{RK} & \textbf{Munition} & \textbf{Verfüg.} & \textbf{Preis}\nl
+    }
+    { 
+    \end{tabular}
+    \end{center}
+    \begin{multicols}{2}
+    }
+
+\newenvironment{table_guns_en}[1]
+    {\end{multicols}
+     \begin{center}
+     \begin{tabular}{L{40mm} C{16mm} C{20mm} C{10mm} C{20mm} C{15mm} C{15mm} C{20mm} C{20mm}}
+     \multicolumn{9}{p{176mm}}{\textbf{#1}} \nl
+     \textbf{Weapon} & \textbf{Acc} & \textbf{DV} & \textbf{AP} & \textbf{Modes} & \textbf{RC} & \textbf{Ammo} & \textbf{Avail} & \textbf{Cost}\nl
     }
     { 
     \end{tabular}
@@ -75,3 +145,110 @@
     \end{center}
     \begin{multicols}{2}
     }
+
+\newenvironment{table_melee_en}[1]
+    {\end{multicols}
+     \begin{center}
+     \begin{tabular}{L{70mm} C{16mm} C{20mm} C{20mm} C{10mm} C{20mm} C{20mm}}
+     \multicolumn{7}{p{176mm}}{\textbf{#1}}\nl
+     \textbf{Weapon} & \textbf{Acc} & \textbf{Reach} & \textbf{DV} & \textbf{AP} & \textbf{Avail} & \textbf{Cost}\nl
+    }
+    { 
+    \end{tabular} 
+    \end{center}
+    \begin{multicols}{2}
+    }
+
+\newenvironment{table_sprite_de}[1]
+    {
+     \begin{center}
+     \setlength{\arrayrulewidth}{1.5pt}
+     \begin{tabular}{C{25mm} C{23mm} C{31mm} C{23mm} C{23mm} C{25mm} C{26mm}}
+     \hline
+     \multicolumn{7}{p{176mm}}{\textbf{\hspace{2mm} #1}} \\
+     \hline
+     \textbf{Angriff} & \textbf{Schleicher} & \textbf{Datenverarbeitung} & \textbf{Firewall} & \textbf{Initiative} & \textbf{Initiativewürfel} & \textbf{Resonanz}\nl
+     \hline
+    }
+    { 
+    \end{tabular}
+    \end{center}
+    }
+
+\newenvironment{table_sprite_en}[1]
+    {
+     \begin{center}
+     \setlength{\arrayrulewidth}{1.5pt}
+     \begin{tabular}{C{25mm} C{23mm} C{31mm} C{23mm} C{23mm} C{25mm} C{26mm}}
+     \hline
+     \multicolumn{7}{p{176mm}}{\textbf{\hspace{2mm} #1}} \\
+     \hline
+     \textbf{Attack} & \textbf{Sleaze} & \textbf{Data Processing} & \textbf{Firewall} & \textbf{Initiative} & \textbf{Initiativedice} & \textbf{Resonance}\nl
+     \hline
+    }
+    { 
+    \end{tabular}
+    \end{center}
+    }    
+\newenvironment{table_vehicle_de}[1]
+    {\end{multicols}
+     \begin{center}
+     \begin{tabular}{C{2mm} L{38mm} C{12mm} C{15mm} C{15mm} C{15mm} C{12mm} C{10mm} C{15mm} C{10mm} C{12mm} C{20mm}}
+     \multicolumn{12}{p{176mm}}{\textbf{\hspace{2mm}#1}} \\
+     \hline
+     & \textbf{Fahrzeug} & \textbf{Handl.} & \textbf{Geschw.} & \textbf{Beschl.} & \textbf{Rumpf} & \textbf{Panz.} & \textbf{Pilot} & \textbf{Sensor} & \textbf{Sitze} & \textbf{Verf.} & \textbf{Preis}\nl
+    }
+    { 
+    \end{tabular} 
+    \end{center}
+    \begin{multicols}{2}
+    }
+    
+\newenvironment{table_vehicle_en}[1]
+    {\end{multicols}
+     \begin{center}
+     \begin{tabular}{C{2mm} L{38mm} C{12mm} C{15mm} C{15mm} C{15mm} C{12mm} C{10mm} C{15mm} C{10mm} C{12mm} C{20mm}}
+     \multicolumn{12}{p{176mm}}{\textbf{\hspace{2mm}#1}} \\
+     & \textbf{Vehicle} & \textbf{Handl.} & \textbf{Speed} & \textbf{Accel.} & \textbf{Body} & \textbf{Armor} & \textbf{Pilot} & \textbf{Sensor} & \textbf{Seats} & \textbf{Avail.} & \textbf{Price}\nl
+    }
+    { 
+    \end{tabular} 
+    \end{center}
+    \begin{multicols}{2}
+    }
+
+\newenvironment{comment_ByteSize}
+    {\vspace{3mm}\begin{adjustwidth}{3mm}{3mm}}
+    {\par>>Byte-Size\end{adjustwidth}\vspace{3mm}}
+
+\newenvironment{comment_Bibliothekar}
+    {\vspace{3mm}\begin{adjustwidth}{3mm}{3mm}}
+    {\par>>Bibliothekar\end{adjustwidth}\vspace{3mm}}
+
+\newenvironment{comment_FiveByFive}
+    {\vspace{3mm}\begin{adjustwidth}{3mm}{3mm}}
+    {\par>>Five-by-Five\end{adjustwidth}\vspace{3mm}}
+
+\newenvironment{comment_Mercury}
+    {\vspace{3mm}\begin{adjustwidth}{3mm}{3mm}}
+    {\par>>Mercury\end{adjustwidth}\vspace{3mm}}
+    
+\newenvironment{comment_Icognito}
+    {\vspace{3mm}\begin{adjustwidth}{3mm}{3mm}}
+    {\par>>Icognito\end{adjustwidth}\vspace{3mm}}
+    
+\newenvironment{comment_Atlas}
+    {\vspace{3mm}\begin{adjustwidth}{3mm}{3mm}}
+    {\par>>Atlas\end{adjustwidth}\vspace{3mm}}
+    
+\newenvironment{comment_Alpha}
+    {\vspace{3mm}\begin{adjustwidth}{3mm}{3mm}}
+    {\par>>Alpha\end{adjustwidth}\vspace{3mm}}
+    
+\newenvironment{comment_Thunder}
+    {\vspace{3mm}\begin{adjustwidth}{3mm}{3mm}}
+    {\par>>Thunder\end{adjustwidth}\vspace{3mm}}
+
+\newenvironment{comment_Whammy}
+    {\vspace{3mm}\begin{adjustwidth}{3mm}{3mm}}
+    {\par>>Thunder\end{adjustwidth}\vspace{3mm}}
