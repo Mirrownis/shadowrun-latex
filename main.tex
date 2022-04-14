@@ -1,36 +1,61 @@
-\documentclass[9pt, final]{extarticle}
+\documentclass[9pt]{extarticle}
 
-% enable/disable either print or fancy layout
-\usepackage{_fancy}
-%\usepackage{_print}
+% enable/disable either print or fancy layout:
+%\usepackage{_fancy}
+\usepackage{_print}
 
-% Individuelle Dokumenteinstellungen
-\newcommand{\Name}{Datei-Hauptüberschrift} % Dokumentname
-\newcommand{\Info}{//Unterüberschrift} % Dokumentinfo
-\newcommand{\Number}{\#Nummer} % Dokumentnummer
-\newcommand{\Category}{Kategorie} % Dokumentnummer
+% Individual Document Settings
+\newcommand{\Name}{Main Caption} % Name of the Document
+\newcommand{\Info}{//additonal info} % Document Info
+\newcommand{\Number}{\#num} % Document Number
+\newcommand{\Category}{Category} % Document Category
 \begin{document}
 \begin{multicols}{2}
-% % % % % % % % % %
-% Dokument-Körper %
-% % % % % % % % % %
 
+
+% % % % % % % % %
+% Document Body %
+% % % % % % % % %
+
+% for normal text, just write your text here
 \blindtext
-\section{Text-Überschrift}
-\textbf{Fetter Text 1:} \blindtext
-\textbf{Fetter Text 1:} \blindtext
 
-\begin{table_guns_de}{SCHUSSWAFFEN}
-Beispiel 1: Üblich & 3 & 10K & +2 & SM & 1 & 16(m) & - & 2.500\textyen\nl
-Beispiel 2: Kurz & - & - & - & - & - & - & - & -\nl
-Beispiel 3: Lang (Leertext) & 5(12) & wie Droge/ Toxin & -1(+4) & HM/SM/AM & 2(5) & 50(m) / 100(gurt) & - & 25.000.000\textyen\nl
-\end{table_guns_de}
+% the style of the headline depends on whether _fancy.sty or _print.sty is selected
+\section{Section Caption}
 
-\begin{table_melee_de}{NAHKAMPFWAFFEN}
-Beispiel 1: Üblich & 4 & 2 & (STR + 5)K & -4 & 12E & 4.000\textyen\nl
-Beispiel 2: Kurz & - & - & - & - & - & -\nl
-Beispiel 3: Lang (Leertext) & 9(12) & 2/4 & (STR + 5)K & -3(-5) & 24V & 23.456.789\textyen\nl
-\end{table_melee_de}
+% subsections should be prefaced with some bold text
+\textbf{Subsection 1:} \blindtext
+
+% the known Shadowrun comment board is implemented as it's own environment
+% to create a new environment, head over to _fancy.sty and _print.sty
+\begin{comment_ByteSize}
+>>\blindtext
+\end{comment_ByteSize}
+
+% these are some example tables, more can be found in the style files
+\begin{table_price_de}{Price List}
+& Example 1: normal & - & 2.500\textyen\nl
+& Example 2: short & - & -\nl
+& Example 3: long entries & 24V & 25.000.000\textyen\nl
+\end{table_price_de}
+
+\begin{table_guns_en}{GUNS}
+Example 1: normal & 3 & 10P & +2 & BF & 1 & 16(m) & - & 2.500\textyen\nl
+Example 2: short & - & - & - & - & - & - & - & -\nl
+Example 3: long entries & 5(12) & as drug/toxin & -1(+4) & SA/BF/FA & 2(5) & 50(c) / 100(belt) & 24F & 25.000.000\textyen\nl
+\end{table_guns_en}
+
+\begin{table_melee_en}{MELEE WEAPONS}
+Example 1: normal & 4 & 2 & (STR + 5)P & -4 & 12R & 4.000\textyen\nl
+Example 2: short & - & - & - & - & - & -\nl
+Example 3: long entries & 9(12) & 2/4 & (STR + 5)P & -3(-5) & 24F & 23.456.789\textyen\nl
+\end{table_melee_en}
+
+\begin{table_vehicle_en}{VEHICLES}
+& Example 1: normal & 2/2 & 3 & 1 & 18 & 12 & 4 & 3 & 2 & 16 & 87.000\textyen\nl
+& Example 2: short & - & - & - & - & - & - & - & - & - & -\nl
+& Example 3: long entries & 4/10 & 4/10 & 5/99 & 99 & 10/24 & 99 & 99 & 4/12 & 24V & 23.456.789\textyen\nl
+\end{table_vehicle_en}
 
 \end{multicols}
 \end{document}
